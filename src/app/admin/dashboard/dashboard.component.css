@@ -1,0 +1,42 @@
+.dashboard {
+  padding: 20px;
+  background: linear-gradient(to right, #1c1c1c, #333);
+  border-radius: 10px;
+  color: white;
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stats-card,
+.category-card,
+.chart-card {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.stat-number {
+  font-size: 36px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffe600;
+}

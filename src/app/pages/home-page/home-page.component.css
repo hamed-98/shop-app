@@ -1,0 +1,67 @@
+.background {
+  background-image: url('/assets/images/white-composition.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-attachment: fixed; 
+}
+.swiper-container {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ffffff;
+  }
+  
+  /* کارت محصولات */
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .banner-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .banner-link h3 {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .banner-link .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  

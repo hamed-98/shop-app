@@ -1,0 +1,36 @@
+<h2 class="modal-header">افزودن/ویرایش محصول</h2>
+
+<div class="form-container h-80" dir="rtl">
+  <mat-form-field class="input-field">
+    <mat-label>نام محصول</mat-label>
+    <input matInput [(ngModel)]="product.name" />
+  </mat-form-field>
+
+  <mat-form-field class="input-field">
+    <mat-label>دسته‌بندی</mat-label>
+    <input matInput [(ngModel)]="product.category" />
+  </mat-form-field>
+
+  <mat-form-field class="input-field">
+    <mat-label>قیمت</mat-label>
+    <input matInput type="number" [(ngModel)]="product.price" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>توضیحات</mat-label>
+    <textarea matInput [(ngModel)]="product.description"></textarea>
+  </mat-form-field>
+
+  <div class="image-upload">
+    <label for="file">تصویر محصول:</label>
+    <input type="file" id="file" (change)="onImageSelected($event)" />
+    <div *ngIf="imagePreview" class="image-preview">
+      <img [src]="imagePreview" alt="تصویر محصول" />
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <button mat-raised-button color="warn" (click)="cancel()">انصراف</button>
+  <button mat-raised-button color="primary" (click)="saveProduct()">ذخیره</button>
+</div>

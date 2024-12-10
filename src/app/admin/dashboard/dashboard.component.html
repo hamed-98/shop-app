@@ -1,0 +1,42 @@
+<div class="dashboard">
+  <div class="dashboard-header">
+    <h1>داشبورد آمار فروشگاه</h1>
+  </div>
+
+  <div *ngIf="loading" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading" class="dashboard-content">
+    <!-- تعداد کل محصولات -->
+    <mat-card class="stats-card">
+      <h3>تعداد کل محصولات</h3>
+      <p class="stat-number">{{ productCount }}</p>
+    </mat-card>
+
+    <!-- آمار محصولات ماه اخیر -->
+    <mat-card class="stats-card">
+      <h3>محصولات درج شده در ماه اخیر</h3>
+      <p class="stat-number">{{ monthlyProducts }}</p>
+    </mat-card>
+
+    <!-- جدول آمار دسته‌بندی‌ها -->
+    <mat-card class="category-card">
+      <h3>آمار دسته‌بندی‌ها</h3>
+      <table mat-table [dataSource]="categories" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> دسته‌بندی </th>
+          <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef> تعداد </th>
+          <td mat-cell *matCellDef="let element"> {{ element.count }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['name', 'count']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'count']"></tr>
+      </table>
+    </mat-card>
+  </div>
+</div>

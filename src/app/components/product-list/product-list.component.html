@@ -1,0 +1,64 @@
+<div class="flex pt-20 gap-2 pb-3">
+  <div class="">
+    <input type="text" class=" p-2 border border-gray-300 rounded-lg" placeholder="جستجوی محصولات..."
+      [(ngModel)]="searchTerm" (input)="filterProducts()" />
+  </div>
+
+
+  <!-- فیلتر بر اساس دسته‌بندی -->
+  <select class="w-full md:w-1/3 p-2 border border-gray-300 rounded-lg mt-4 md:mt-0" [(ngModel)]="selectedCategory"
+    (change)="filterProducts()">
+    <option value="">تمام دسته‌ها</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+
+  <!-- فیلتر بر اساس قیمت -->
+  <div class="w-full md:w-1/3 mt-4 md:mt-0">
+    <label class="block text-sm mb-1">محدوده قیمت</label>
+    <input type="range" class="w-full" [min]="priceRange.min" [max]="priceRange.max" [(ngModel)]="selectedMinPrice"
+      (input)="filterProducts()" />
+    <div class="flex justify-between text-sm">
+      <span>{{ selectedMinPrice | currency:'تومان':'symbol':'1.0-0'}}</span>
+      <span>{{ selectedMaxPrice | currency:'تومان':'symbol':'1.0-0' }}</span>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="product-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <div *ngFor="let product of filteredProducts"
+    class="product-card p-4 border rounded-lg shadow-md hover:shadow-lg card">
+    <img [src]="product.image" loading="lazy" [alt]="product.name"
+      class="product-image w-full h-48 object-cover mb-4" />
+    <h2 class="product-title text-xl font-semibold mb-2">{{ product.name }}</h2>
+    <p class="product-price text-lg text-gray-700 mb-4">{{ product.price | currency:'تومان':'symbol':'1.0-0' }}</p>
+    <a [routerLink]="['/product', product.id]"
+      class="view-details-btn bg-quillGray-300 text-white py-2 px-4 rounded hover:bg-quillGray-400 block text-center">مشاهده
+      جزئیات</a>
+    <button (click)="addToCart(product)"
+      class="add-to-cart-btn bg-quillGray-500 text-white py-2 px-4 rounded hover:bg-quillGray-600 w-full mt-2">افزودن به
+      سبد خرید</button>
+  </div>
+</div>
+
+
+
+<!-- <div class="container mx-auto px-4 pt-20">
+
+  <div class="mb-4">
+    <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="جستجوی محصولات..."
+      [(ngModel)]="searchTerm" (input)="filterProducts()" />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div *ngFor="let product of filteredProducts" class="border border-gray-300 rounded-lg p-4">
+      <img [src]="product.image" alt="{{ product.name }}" class="w-full h-40 object-cover rounded-lg mb-4" />
+      <h3 class="text-lg font-bold">{{ product.name }}</h3>
+      <p class="text-gray-600">{{ product.description }}</p>
+      <p class="text-blue-600 font-bold">{{ product.price | currency:'IRR' }}</p>
+      <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+        مشاهده محصول
+      </button>
+    </div>
+  </div>
+</div> -->

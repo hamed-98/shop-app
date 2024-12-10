@@ -1,0 +1,18 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer mode="side" opened>
+    <mat-toolbar>منوی ادمین</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/admin/dashboard">داشبورد</a>
+      <a mat-list-item routerLink="/admin/users">محصولات</a>
+      <a mat-list-item routerLink="/admin/products">مدیریت محصولات</a>
+      <a mat-list-item (click)="logout()">خروج از حساب</a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar color="primary">پنل مدیریت</mat-toolbar>
+    <div class="content pr-56">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

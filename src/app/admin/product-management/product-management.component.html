@@ -1,0 +1,48 @@
+<div>
+  <h2>مدیریت محصولات</h2>
+  <button mat-raised-button color="primary" (click)="openAddProductModal()">افزودن محصول</button>
+
+  <table mat-table [dataSource]="products" class="mat-elevation-z8" style="table-layout: fixed; width: 100%;">
+
+    <!-- ستون نام محصول -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>نام محصول</th>
+      <td mat-cell *matCellDef="let product">{{product.name}}</td>
+    </ng-container>
+
+    <!-- ستون دسته‌بندی -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>دسته‌بندی</th>
+      <td mat-cell *matCellDef="let product">{{product.category}}</td>
+    </ng-container>
+
+    <!-- ستون قیمت -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>قیمت</th>
+      <td mat-cell *matCellDef="let product">{{product.price}}</td>
+    </ng-container>
+
+    <!-- ستون عملیات -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>عملیات</th>
+      <td mat-cell *matCellDef="let product">
+        <div class="flex gap-3">
+          <button class="bg-quillGray-600 text-base p-1 rounded-md text-white" (click)="openEditProductModal(product)">ویرایش</button>
+          <button class="rounded-md bg-indigo-300 text-rose-800 p-1" (click)="deleteProduct(product.id)">حذف</button>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- ستون عکس محصول -->
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef>عکس محصول</th>
+      <td mat-cell *matCellDef="let product">
+        <img *ngIf="product.image" [src]="product.image" alt="{{product.name}}" width="90" height="90"
+          style="object-fit: cover; border-radius: 4px;">
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['name', 'category', 'price', 'actions','image']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['name', 'category', 'price', 'actions','image'];"></tr>
+  </table>
+</div>

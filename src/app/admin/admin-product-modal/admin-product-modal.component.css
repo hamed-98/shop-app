@@ -1,0 +1,44 @@
+.modal-header {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input-field {
+    width: 100%;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5em;
+  }
+  
+  button {
+    width: 48%;
+  }
+  
+  .image-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 28px;
+  }
+  
+  .image-preview {
+    margin-top: 10px;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+  }
+  

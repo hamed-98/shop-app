@@ -1,0 +1,104 @@
+<!-- <div *ngIf="cartItems.length > 0; else emptyCart">
+  <div class="cart-item" *ngFor="let item of cartItems">
+    <img [src]="item.image" alt="{{ item.name }}" class="cart-item-image" />
+    <div class="cart-item-info">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.price | currency:'IRR':'symbol':'1.0-0' }}</p>
+      <div class="quantity">
+        <label for="quantity">تعداد: </label>
+        <input type="number" [(ngModel)]="item.quantity" min="1" (ngModelChange)="updateQuantity(item, item.quantity)" />
+      </div>
+      <button (click)="removeFromCart(item)">حذف</button>
+    </div>
+  </div>
+  <div class="cart-total">
+    <h3>مجموع: {{ totalPrice | currency:'IRR':'symbol':'1.0-0' }}</h3>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <p>سبد خرید شما خالی است.</p>
+</ng-template> -->
+
+<!-- <div class="container mx-auto my-8 p-4 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800">سبد خرید شما</h2>
+  
+  <div *ngIf="cartItems.length; else emptyCart">
+    <div class="grid gap-4">
+      <div
+        *ngFor="let item of cartItems"
+        class="flex items-center justify-between p-4 border-b border-gray-200"
+      >
+        <div class="flex items-center space-x-4">
+          <img
+            [src]="item.image"
+            alt="{{ item.title }}"
+            class="w-16 h-16 object-cover rounded-md"
+          />
+          <div>
+            <h3 class="font-medium text-gray-700">{{ item.title }}</h3>
+            <p class="text-sm text-gray-500">{{ item.description }}</p>
+            <p class="text-sm font-semibold text-gray-800">{{ item.price | currency:'USD' }}</p>
+          </div>
+        </div>
+        <button
+          class="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+          (click)="removeFromCart(item.id)"
+        >
+          حذف
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-lg font-semibold text-gray-800">
+        مجموع: {{ calculateTotalPrice() | currency:'USD' }}
+      </p>
+      <button
+        class="bg-blue-500 text-white px-6 py-2 rounded-md shadow hover:bg-blue-600 transition"
+      >
+        ادامه خرید
+      </button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p class="text-gray-500 text-center py-8">سبد خرید شما خالی است!</p>
+  </ng-template>
+</div> -->
+
+<div class="container mx-auto my-8 p-4 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-4 text-gray-800">سبد خرید شما</h2>
+
+  <div *ngIf="cartItems.length; else emptyCart">
+    <div class="grid gap-4">
+      <div *ngFor="let item of cartItems" class="flex items-center justify-between p-4 border-b border-gray-200">
+        <div class="flex items-center gap-2 space-x-4">
+          <img [src]="item.image" alt="{{ item.name }}" class="w-24 h-24 object-cover rounded-md" />
+          <div>
+            <h2 class="font-semibold text-base text-gray-700">{{ item.name }}</h2>
+            <p class="text-sm text-gray-500">{{ item.description }}</p>
+            <p class="text-sm font-semibold text-gray-800">{{ item.price | currency: 'تومان ':'symbol':'1.0-0' }}</p>
+          </div>
+        </div>
+        <button class="bg-red-500 text-white px-4 py-2 rounded-md shadow hover:bg-red-600 transition"
+          (click)="removeFromCart(item)">
+          حذف
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-lg font-semibold text-gray-800">
+        مجموع: {{ calculateTotal() | currency:'تومان':'symbol':'1.0-0' }}
+      </p>
+      <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow hover:bg-blue-600 transition">
+        ادامه خرید
+      </button>
+    </div>
+  </div>
+
+  <ng-template #emptyCart>
+    <p class="text-gray-500 text-center py-8">سبد خرید شما خالی است!</p>
+  </ng-template>
+</div>
