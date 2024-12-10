@@ -1,5 +1,5 @@
-<div class="flex pt-20 gap-2 pb-3">
-  <div class="">
+<div class="flex pt-28 md:pt-20 gap-2 pb-3">
+  <div class="pt-10">
     <input type="text" class=" p-2 border border-gray-300 rounded-lg" placeholder="جستجوی محصولات..."
       [(ngModel)]="searchTerm" (input)="filterProducts()" />
   </div>
@@ -42,23 +42,3 @@
   </div>
 </div>
 
-
-
-<!-- <div class="container mx-auto px-4 pt-20">
-
-  <div class="mb-4">
-    <input type="text" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="جستجوی محصولات..."
-      [(ngModel)]="searchTerm" (input)="filterProducts()" />
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let product of filteredProducts" class="border border-gray-300 rounded-lg p-4">
-      <img [src]="product.image" alt="{{ product.name }}" class="w-full h-40 object-cover rounded-lg mb-4" />
-      <h3 class="text-lg font-bold">{{ product.name }}</h3>
-      <p class="text-gray-600">{{ product.description }}</p>
-      <p class="text-blue-600 font-bold">{{ product.price | currency:'IRR' }}</p>
-      <button class="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-        مشاهده محصول
-      </button>
-    </div>
-  </div>
-</div> -->

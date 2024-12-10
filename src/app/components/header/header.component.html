@@ -1,11 +1,15 @@
 <header class="bg-[#f4f3f6] text-white w-[100%] p-4 flex justify-between items-center fixed z-20">
 
   <div class="flex gap-5 items-center lg:gap-11">
+
+    <button class="lg:hidden p-2 text-black bg-white rounded-md" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <div class="logo text-quillGray-900 text-3xl font-medium font-Ojan lg:text-4xl">
       <a routerLink="/">دیجی استایل</a>
     </div>
 
-    <div>
+    <div class="hidden lg:block">
       <ul class="flex gap-3 font-bold text-base text-quillGray-500 *:transition-all lg:gap-5">
         <li class="hover:text-[17px] hover:text-quillGray-400 text-quillGray-900">
           <a routerLink="">صفحه اصلی</a>
@@ -15,12 +19,22 @@
         <li class="hover:text-quillGray-900 hover:text-[17px]"><a href="">تماس با ما</a></li>
       </ul>
     </div>
+
+
+  </div>
+
+  <div *ngIf="isMenuOpen" class="absolute top-16 right-0 bg-white shadow-lg rounded-md p-4 w-60 lg:hidden">
+    <ul class="flex flex-col gap-3 text-quillGray-500">
+      <li class="hover:text-quillGray-900"><a (click)="closeMenu()" routerLink="">صفحه اصلی</a></li>
+      <li class="hover:text-quillGray-900"><a (click)="closeMenu()" routerLink="/productlist">محصولات</a></li>
+      <li class="hover:text-quillGray-900"><a (click)="closeMenu()" href="">وبلاگ</a></li>
+      <li class="hover:text-quillGray-900"><a (click)="closeMenu()" href="">تماس با ما</a></li>
+    </ul>
   </div>
 
   <div>
     <div class="flex items-center gap-1">
       <!-- قسمت جستجو -->
-
       <div>
         <!-- فیلد جستجو -->
         <input type="text" [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="جستجو..."

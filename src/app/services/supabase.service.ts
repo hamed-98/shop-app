@@ -29,7 +29,7 @@ export class SupabaseService {
 
 
     
-  //  اضافه کردن محصول به Supabase
+  
   async addProduct(product: Product) {
     try {
       const { error } = await supabase
@@ -49,7 +49,7 @@ export class SupabaseService {
     }
   }
 
-  // حذف محصول  Supabase
+  // حذف محصول 
   async deleteProduct(id: number) {
     try {
       const { error } = await supabase
@@ -76,7 +76,7 @@ export class SupabaseService {
       .from('product-images')
       .upload(filePath, imageFile, {
         cacheControl: '3600',
-        upsert: true, // برای جایگزینی فایل‌های موجود
+        upsert: true, 
       });
   
     if (error) {

@@ -28,16 +28,16 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.getCart().subscribe((cart) => {
-      this.cartCount = cart.length;  // تعداد محصولات در سبد خرید را ذخیره می‌کنیم
+      this.cartCount = cart.length;  
     });
 
-    // اضافه کردن Event Listener برای کلیک خارج از اینپوت و مودال
+    
     this.renderer.listen('document', 'click', (event: MouseEvent) => {
       const isClickInsideModal = event.target instanceof HTMLElement && event.target.closest('.search-modal');
       const isClickInsideInput = event.target instanceof HTMLElement && event.target.closest('.search-input');
 
       if (!isClickInsideModal && !isClickInsideInput) {
-        this.clearSearch(); // پاک کردن اینپوت و بستن مودال
+        this.clearSearch(); 
       }
     });
 
@@ -54,21 +54,31 @@ export class HeaderComponent implements OnInit {
           product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
         );
       });
-      this.showModal = true;  // مودال را نمایش می‌دهیم
+      this.showModal = true;  
     } else {
-      this.filteredProducts = []; // اگر جستجو خالی بود نتایج خالی باشد
-      this.showModal = false;  // مودال را مخفی می‌کنیم
+      this.filteredProducts = []; 
+      this.showModal = false;  
     }
   }
 
   clearSearch() {
-    this.searchTerm = ''; // پاک کردن مقدار اینپوت
-    this.filteredProducts = []; // پاک کردن نتایج جستجو
-    this.showModal = false; // بستن مودال
+    this.searchTerm = ''; 
+    this.filteredProducts = []; 
+    this.showModal = false; 
   }
 
   closeModal() {
     this.showModal = false;
+  }
+
+  isMenuOpen: boolean = false; 
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false; 
   }
 
 }

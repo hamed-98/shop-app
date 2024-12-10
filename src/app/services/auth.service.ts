@@ -45,8 +45,8 @@ export class AuthService {
       console.log('Error از Supabase login:', error);
 
       console.log('Login success:', data);
-      this.userSubject.next(data.user); // ذخیره کاربر وارد شده
-      return data; // بازگشت داده‌ها به کامپوننت
+      this.userSubject.next(data.user); 
+      return data; 
     } catch (error) {
       console.error('Unexpected login error:', error);
       throw new Error('خطا');
