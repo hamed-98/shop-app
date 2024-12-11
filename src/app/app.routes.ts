@@ -25,7 +25,6 @@ export const routes: Routes = [
         path: 'products', loadComponent: () => import('./admin/product-management/product-management.component')
           .then(m => m.ProductManagementComponent,),
       },
-      // { path: 'orders', loadComponent: () => import('./admin/orders/orders.component').then(m => m.OrdersComponent) },
       { path: 'users', loadComponent: () => import('./admin/user-management/user-management.component').then(m => m.UserManagementComponent) },
     ]
   },
